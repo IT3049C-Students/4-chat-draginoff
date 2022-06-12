@@ -2,7 +2,7 @@ const nameInput = document.getElementById("my-name-input");
 const myMessage = document.getElementById("my-message");
 const sendButton = document.getElementById("send-button");
 const chatBox = document.getElementById("chat");
-
+const saveButton = document.getElementById("save-button");
 const serverURL = `https://it3049c-chat-application.herokuapp.com/messages`;
 
 async function updateMessages() {
@@ -80,3 +80,20 @@ sendButton.addEventListener("click", function(sendButtonClickEvent) {
 
 const MILLISECONDS_IN_TEN_SECONDS = 10000;
 setInterval(updateMessages, MILLISECONDS_IN_TEN_SECONDS);
+
+
+
+saveButton.addEventListener('click', function(saveButtonClickEvent){
+        saveButtonClickEvent.preventDefault();
+        
+        var textUsername = nameInput.value;
+        localStorage.setItem('UserName',textUsername);
+        console.log(textUsername);
+        
+    });
+
+//nameInput.addEventListener('keyup', function(){
+  //  var textUsername = nameInput.value;
+    //localStorage.setItem('UserName',textUsername);
+    //console.log(textUsername);
+    // });
